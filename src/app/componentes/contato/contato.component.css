@@ -1,0 +1,25 @@
+.lista {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px;
+}
+.lista li {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+.lista li strong {
+  font-weight: 700;
+}
+
+.lista li button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
