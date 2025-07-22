@@ -35,8 +35,19 @@ export class AppComponent {
 
   filtroPorTexto: string = '';
 
-  filtrarContatosPorLetraInicial(letra: string): Contato[] {
+  filtrarContatosPorTexto(): Contato[] {
+    if (!this.filtroPorTexto) {
+      return this.contatos;
+    }
     return this.contatos.filter((contato) => {
+      return contato.nome
+        .toLowerCase()
+        .includes(this.filtroPorTexto.toLowerCase());
+    });
+  }
+
+  filtrarContatosPorLetraInicial(letra: string): Contato[] {
+    return this.filtrarContatosPorTexto().filter((contato) => {
       return contato.nome.toLowerCase().startsWith(letra);
     });
   }
