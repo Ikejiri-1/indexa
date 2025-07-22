@@ -7,4 +7,5 @@ h2 {
   line-height: 150%;
   margin: 0;
   border-bottom: 1px solid #0d6efd;
+  text-transform: uppercase;
 }

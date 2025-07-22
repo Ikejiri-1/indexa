@@ -5,7 +5,13 @@ import { ContainerComponent } from './componentes/container/container.component'
 import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component';
 import { SeparadorComponent } from './componentes/separador/separador.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
+import agenda from '../app/agenda.json';
 
+interface Contato {
+  id: number;
+  nome: string;
+  telefone: string;
+}
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,5 +27,12 @@ import { ContatoComponent } from './componentes/contato/contato.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  alfabeto: string = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase();
+  title = 'indexa';
+  alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
+  contatos: Contato[] = agenda;
+  filtrarContatosPorLetraInicial(letra: string): Contato[] {
+    return this.contatos.filter((contato) => {
+      return contato.nome.toLowerCase().startsWith(letra);
+    });
+  }
 }
