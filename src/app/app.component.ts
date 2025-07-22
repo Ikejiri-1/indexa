@@ -35,12 +35,16 @@ export class AppComponent {
 
   filtroPorTexto: string = '';
 
+  removerAcentos(string: string) {
+    return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
   filtrarContatosPorTexto(): Contato[] {
     if (!this.filtroPorTexto) {
       return this.contatos;
     }
     return this.contatos.filter((contato) => {
-      return contato.nome
+      return this.removerAcentos(contato.nome)
         .toLowerCase()
         .includes(this.filtroPorTexto.toLowerCase());
     });
