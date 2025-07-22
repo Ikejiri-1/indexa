@@ -45,31 +45,9 @@ export class AppComponent {
         .includes(this.filtroPorTexto.toLowerCase());
     });
   }
-  filtroPorNumero: string = '';
-  filtrarContatosPorNumero(): Contato[] {
-    if (!this.filtroPorNumero) {
-      return this.contatos;
-    }
-    return this.contatos.filter((contato) => {
-      return contato.telefone
-        .toLowerCase()
-        .includes(this.filtroPorNumero.toLowerCase());
-    });
-  }
-
-  contatosFiltrados(): Contato[] {
-    let filtrados = this.contatos;
-    if (this.filtroPorTexto) {
-      filtrados = this.filtrarContatosPorTexto();
-    }
-    if (this.filtroPorNumero) {
-      filtrados = this.filtrarContatosPorNumero();
-    }
-    return filtrados;
-  }
 
   filtrarContatosPorLetraInicial(letra: string): Contato[] {
-    return this.contatosFiltrados().filter((contato) => {
+    return this.filtrarContatosPorTexto().filter((contato) => {
       return contato.nome.toLowerCase().startsWith(letra);
     });
   }
