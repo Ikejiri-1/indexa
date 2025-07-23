@@ -33,6 +33,11 @@ input {
   align-items: center;
   justify-content: center;
 }
+.adicionar-contato button:hover {
+  background-color: #0c4294;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
 
 .adicionar-contato img {
   width: 20px;
