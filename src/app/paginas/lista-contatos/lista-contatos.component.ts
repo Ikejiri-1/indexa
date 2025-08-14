@@ -29,14 +29,16 @@ import { Contato } from '../../componentes/contato';
 export class ListaContatosComponent implements OnInit {
   title = 'indexa';
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
-  contatos: Contato[] = this.contatoService.obterContatos();
+  contatos: Contato[] = [];
 
   filtroPorTexto: string = '';
 
   constructor(private contatoService: ContatoService) {}
 
   ngOnInit() {
-    this.contatos = this.contatoService.obterContatos();
+    this.contatoService.obterContatos().subscribe((listaContatos) => {
+      this.contatos = listaContatos;
+    });
   }
 
   removerAcentos(string: string) {
