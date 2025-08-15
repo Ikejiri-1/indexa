@@ -42,11 +42,13 @@ export class FormularioContatoComponent implements OnInit {
     });
   }
 
-  salvarContato() {
+  salvarContatoNaLista() {
     if (this.contatoForm.valid) {
-      this.contatoService.salvarContatos(this.contatoForm.value);
-      this.contatoForm.reset();
-      this.router.navigateByUrl('/lista-contatos');
+      const novoContato = this.contatoForm.value;
+      this.contatoService.salvarContatos(novoContato).subscribe(() => {
+        this.contatoForm.reset();
+        this.router.navigateByUrl('/lista-contatos');
+      });
     }
   }
   cancelar() {
