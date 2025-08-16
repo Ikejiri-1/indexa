@@ -3,7 +3,7 @@ export interface Contato {
   nome: string;
   telefone: string;
   email: string;
-  aniversario?: Date;
+  aniversario?: Date | string;
   redes?: string;
   observacoes?: string;
 }
