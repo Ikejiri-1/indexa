@@ -21,4 +21,9 @@ export class ContatoService {
     const URL = `${this.API}/${id}`;
     return this.http.get<Contato>(URL);
   }
+
+  deletarContato(id: number): Observable<Contato> {
+    const URL = `${this.API}/${id}`;
+    return this.http.delete<Contato>(URL);
+  }
 }
