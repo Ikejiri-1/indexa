@@ -26,4 +26,15 @@ export class ContatoService {
     const URL = `${this.API}/${id}`;
     return this.http.delete<Contato>(URL);
   }
+  editarContato(contato: Contato): Observable<Contato> {
+    const URL = `${this.API}/${contato.id}`;
+    return this.http.put<Contato>(URL, contato);
+  }
+  editarOuSalvarContato(contato: Contato): Observable<Contato> {
+    if (contato.id) {
+      return this.editarContato(contato);
+    } else {
+      return this.salvarContatos(contato);
+    }
+  }
 }
