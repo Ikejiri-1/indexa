@@ -1,1 +1,6 @@
-<p>mensagem-erro works!</p>
+@if(controle.errors && controle.touched) { @if (controle.errors['required']) {
+
+<div class="mensagem-erro">Campo Obrigatório</div>
+} @if (controle.errors['email']) {
+<div class="mensagem-erro">Formato de email: exemplo&#64;email.com</div>
+} }
