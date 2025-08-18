@@ -43,3 +43,8 @@
 .cabecalho .seta {
   margin: 0 8px;
 }
+
+.cabecalho .link button {
+  border: none;
+  background-color: transparent;
+}
